@@ -1,0 +1,8 @@
+---
+alwaysApply: false
+---
+
+# Performance Testing Standards
+- Every hardware driver must have a `bench_latency.py` script.
+- Latency tests must simulate 100 packets/sec and measure Round-Trip Time (RTT).
+- If the RTT average exceeds 25ms on a local loopback, the driver fails verification.
