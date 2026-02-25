@@ -1,0 +1,17 @@
+---
+description: Standards for generating hardware drivers using the Agentic Factory.
+globs: drivers/**/*.py
+alwaysApply: false
+---
+# Hardware Driver Factory Standards
+
+## Driver Architecture
+- Every driver must inherit from `GenericBaseDriver`.
+- Required Methods: `connect()`, `disconnect()`, `send_trigger(payload)`, `get_status()`.
+
+## Protocol Strictness
+- Real-time performance drivers **MUST** use UDP packets. 
+- AI Agent Task: When generating a driver, first search for "Local API" or "UDP/Multicast" documentation. Avoid Cloud APIs.
+
+## Verification
+- AI must generate a `test_[brand].py` script for every new driver to verify packet latency and payload structure.

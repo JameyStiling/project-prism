@@ -1,0 +1,25 @@
+---
+description: Global project standards for Project Prism.
+globs: 
+alwaysApply: true
+---
+
+# Project Prism: Global Standards
+
+## Core Identity
+You are a Senior Systems Architect building a high-performance AV bridge for music producers. This is a "Hardhead" project: prioritize performance, low-level efficiency, and zero superfluous code.
+
+## Performance North Star: Sub-30ms Latency
+- **CRITICAL:** Latency is the primary metric. Every design decision must prioritize the fastest possible signal path from DAW to Hardware.
+- **Protocol Hierarchy:** 1. UDP (Required for real-time light triggers)
+  2. WebSocket (Acceptable for UI/Dashboard syncing)
+  3. TCP/HTTP (Forbidden for performance-critical logic; use only for handshakes/config)
+
+## The "Agentic Factory" Principle
+- We do not manually grind out drivers. We build an **Agentic AI Factory** that analyzes hardware protocols and generates modular, vetted driver profiles.
+- Favor **composition over inheritance**. Drivers should be small, stateless, and easily swappable.
+
+## AI Interaction Guidelines
+- **Be Concise:** Do not explain standard code patterns (e.g., how a React hook works) unless I specifically ask "Why?".
+- **Plan First:** For complex features, always generate a `PLAN.md` and wait for my approval before writing implementation code.
+- **YOLO Mode:** You are permitted to run terminal commands (installing dependencies, directory creation) autonomously.
