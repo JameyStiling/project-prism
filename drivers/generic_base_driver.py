@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Mapping, Optional
 
 
 class GenericBaseDriver(ABC):
@@ -50,12 +50,18 @@ class GenericBaseDriver(ABC):
         """
 
     @abstractmethod
-    def send(self, payload: Any) -> None:
+    def send_trigger(self, payload: Any) -> None:
         """
-        Send a single logical payload to the device.
+        Send a single logical trigger payload to the device.
 
         The concrete driver is responsible for translating this payload into the
         appropriate protocol-specific representation (e.g., UDP packets, serial
         frames, etc.).
+        """
+
+    @abstractmethod
+    def get_status(self) -> Mapping[str, Any]:
+        """
+        Return a lightweight, serializable snapshot of the driver's current status.
         """
 
