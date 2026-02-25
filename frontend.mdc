@@ -1,0 +1,15 @@
+---
+description: Modular dashboard architecture standards.
+globs: dashboard/src/**/*
+alwaysApply: false
+---
+# Dashboard: The Modular Grid
+
+## Architecture
+- Use **Zustand** for lightweight global state (managing audio data streams).
+- **Component Pattern:** Logic must be in Custom Hooks; Components are for rendering only.
+- **The Grid:** All visual modules must be draggable/resizable. Use `react-grid-layout` or similar.
+
+## Data Handling
+- Use a single WebSocket hook to consume the FFT stream from the Python Core.
+- Throttled Rendering: Ensure UI updates don't block the browser's main thread (use `requestAnimationFrame`).

@@ -1,0 +1,15 @@
+---
+description: High-performance audio signal processing standards.
+globs: core-engine/**/*.py
+alwaysApply: false
+---
+# Core Engine: Signal Processing
+
+## Performance Constraints
+- Use `NumPy` for all FFT and vector operations.
+- Avoid heavy library imports inside the main audio loop.
+- Main loop frequency should be 60Hz or higher to maintain rhythmic sync.
+
+## Audio Processing
+- Separate audio into 3 bands: Bass (20-150Hz), Mids (150-4000Hz), Highs (4000Hz+).
+- Use a sliding window for RMS peak detection to prevent "flickering" visuals.
